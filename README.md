@@ -70,3 +70,6 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
+
+## ER図のリンク
+https://gyazo.com/60ff7d3795512be5deb0338b3fde4334
