@@ -64,6 +64,7 @@ Things you may want to cover:
 | tel         | integar    | null: false                    |
 | user        | references | null: false, foreign_key: true |
 | item        | references | null: false, foreign_key: true |
+| buyuser_id  | ingtegar   | null: false                    |
 
 ### Association
 
