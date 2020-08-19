@@ -25,7 +25,7 @@ Things you may want to cover:
 
 # フリマアプリのテーブル設計
 
-## users テーブル
+## users テーブル（ユーザーのテーブル）
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
@@ -36,9 +36,10 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :settles
+- has_many :buys
+- has_one :profile
 
-## items テーブル
+## profile テーブル（本人情報のテーブル）
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -51,10 +52,30 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :settle
 - belongs_to :user
 
-## settles テーブル
+
+## items テーブル（出品情報のテーブル）
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false                    |
+| image         | string     | null: false                    |
+| item_text     | text       | null: false                    |
+| price         | integer    | null: false                    |
+| deli_fee      | string     | null: false                    |
+| user          | references | null: false, foreign_key: true |
+| condition     | string     | null: false                    |
+| category      | string     | null: false                    |
+| shipping_day  | integer    | null: false                    |
+| shipping_area | string     | null: false                    |
+
+### Association
+
+- has_one :buy
+- belongs_to :user
+
+## buys テーブル（購入ログのテーブル）
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
@@ -72,4 +93,4 @@ Things you may want to cover:
 - belongs_to :user
 
 ## ER図のリンク
-https://gyazo.com/60ff7d3795512be5deb0338b3fde4334
+https://gyazo.com/49c596f0941aca2c3c9b70e3322c02e9
