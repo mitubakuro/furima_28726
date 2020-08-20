@@ -51,7 +51,7 @@ Things you may want to cover:
 | item_text     | text        | null: false                    |
 | price         | integer     | null: false                    |
 | deli_fee      | integer     | null: false                    |
-| user          | references  | null: false, foreign_key: true |
+| user_id       | references  | null: false, foreign_key: true |
 | condition     | integer     | null: false                    |
 | category      | integer     | null: false                    |
 | shipping_day  | integer     | null: false                    |
@@ -71,8 +71,8 @@ Things you may want to cover:
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
 | tel           | string     | null: false                    |
-| user          | references | null: false, foreign_key: true |
-| item          | references | null: false, foreign_key: true |
+| user_id       | references | null: false, foreign_key: true |
+| item_id       | references | null: false, foreign_key: true |
 | buyuser_id    | integer    | null: false                    |
 
 ### Association
@@ -80,5 +80,17 @@ Things you may want to cover:
 - belongs_to :item
 - belongs_to :user
 
+## orders テーブル（取引情報のテーブル）
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user_id       | references | null: false, foreign_key: true |
+| item_id       | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
+
 ## ER図のリンク
-https://gyazo.com/49c596f0941aca2c3c9b70e3322c02e9
+https://gyazo.com/eb1ff7331a2ee87d4cfee0bde7ba6a08
