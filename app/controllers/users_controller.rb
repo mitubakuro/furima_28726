@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   # def sign_up
   #   @user = User.new(configure_permitted_parameters)
   #   @user.save
@@ -7,9 +6,4 @@ class UsersController < ApplicationController
 
   def sign_in
   end
-
-private
-
-
-
 end
