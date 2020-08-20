@@ -51,7 +51,7 @@ Things you may want to cover:
 | item_text     | text        | null: false                    |
 | price         | integer     | null: false                    |
 | deli_fee      | integer     | null: false                    |
-| user_id       | references  | null: false, foreign_key: true |
+| user          | references  | null: false, foreign_key: true |
 | condition     | integer     | null: false                    |
 | category      | integer     | null: false                    |
 | shipping_day  | integer     | null: false                    |
@@ -70,8 +70,9 @@ Things you may want to cover:
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
+| build_number  | string     | null: false                    |
 | tel           | string     | null: false                    |
-| order_id      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -81,8 +82,8 @@ Things you may want to cover:
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| user_id       | references | null: false, foreign_key: true |
-| item_id       | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 ### Association
 
