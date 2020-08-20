@@ -41,7 +41,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :buys
+- has_many :orders
 
 ## items テーブル（出品情報のテーブル）
 
@@ -59,26 +59,23 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :buy
+- has_one :order
 - belongs_to :user
 
-## buys テーブル（購入ログのテーブル）
+## addresses テーブル（住所のテーブル）
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| postal_code   | integer    | null: false                    |
+| postal_code   | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
-| address       | string     | null: false                    |
+| house_number  | string     | null: false                    |
 | tel           | string     | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
-| item_id       | references | null: false, foreign_key: true |
-| buyuser_id    | integer    | null: false                    |
+| order_id      | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :item
-- belongs_to :user
+- belongs_to :order
 
 ## orders テーブル（取引情報のテーブル）
 
@@ -93,4 +90,4 @@ Things you may want to cover:
 - belongs_to :user
 
 ## ER図のリンク
-https://gyazo.com/eb1ff7331a2ee87d4cfee0bde7ba6a08
+https://gyazo.com/8d769bdc398747bc5bc998c7ff6180a9
