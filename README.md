@@ -88,6 +88,7 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
+- has_one :address
 
 ## ER図のリンク
 https://gyazo.com/8d769bdc398747bc5bc998c7ff6180a9
