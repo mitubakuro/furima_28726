@@ -27,48 +27,35 @@ Things you may want to cover:
 
 ## users テーブル（ユーザーのテーブル）
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| nickname | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| Column      | Type   | Options     |
+| ----------- | ------ | ----------- |
+| nickname    | string | null: false |
+| email       | string | null: false |
+| password    | string | null: false |
+| family_name | string | null: false |
+| first_name  | string | null: false |
+| family_kana | string | null: false |
+| first_kana  | string | null: false |
+| birthday    | date   | null: false |
 
 ### Association
 
 - has_many :items
 - has_many :buys
-- has_one :profile
-
-## profile テーブル（本人情報のテーブル）
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| name      | string     | null: false                    |
-| image     | string     | null: false                    |
-| item_text | text       | null: false                    |
-| price     | integer    | null: false                    |
-| deli_fee  | string     | null: false                    |
-| user      | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-
 
 ## items テーブル（出品情報のテーブル）
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| image         | string     | null: false                    |
-| item_text     | text       | null: false                    |
-| price         | integer    | null: false                    |
-| deli_fee      | string     | null: false                    |
-| user          | references | null: false, foreign_key: true |
-| condition     | string     | null: false                    |
-| category      | string     | null: false                    |
-| shipping_day  | integer    | null: false                    |
-| shipping_area | string     | null: false                    |
+| Column        | Type        | Options                        |
+| ------------- | ----------- | ------------------------------ |
+| name          | string      | null: false                    |
+| item_text     | text        | null: false                    |
+| price         | integer     | null: false                    |
+| deli_fee      | integer     | null: false                    |
+| user          | references  | null: false, foreign_key: true |
+| condition     | integer     | null: false                    |
+| category      | integer     | null: false                    |
+| shipping_day  | integer     | null: false                    |
+| shipping_area | integer     | null: false                    |
 
 ### Association
 
@@ -77,15 +64,16 @@ Things you may want to cover:
 
 ## buys テーブル（購入ログのテーブル）
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| postal_code | string     | null: false                    |
-| prefecture  | string     | null: false                    |
-| city        | string     | null: false                    |
-| tel         | integar    | null: false                    |
-| user        | references | null: false, foreign_key: true |
-| item        | references | null: false, foreign_key: true |
-| buyuser_id  | ingtegar   | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| tel           | string     | null: false                    |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
+| buyuser_id    | integer    | null: false                    |
 
 ### Association
 
