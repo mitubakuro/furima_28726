@@ -60,6 +60,3 @@ group :production do
 # 静的アセットファイルやログの保存先をHeroku用に微調整してくれるGemです。
   gem 'rails_12factor'
 end
-
-gem 'mini_magick'
-gem 'image_processing', '~> 1.2'
