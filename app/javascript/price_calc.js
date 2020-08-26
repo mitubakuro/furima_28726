@@ -1,3 +1,5 @@
+window.addEventListener("load", calc);
+
 function calc(){
   // 必要な要素を取得
   const price = document.getElementById('item-price');
@@ -13,5 +15,3 @@ function calc(){
     getprofit.textContent = profit
   });
 }
-
-window.addEventListener("load", calc);

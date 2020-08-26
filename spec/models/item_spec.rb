@@ -2,16 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   before do
-    @user = FactoryBot.create(:user)
     @item = FactoryBot.build(:item)
-    @item.user_id = @user.id
   end
 
   describe '商品出品機能の単体テスト' do
     context '出品がうまくいくとき' do
       it '9個の入力項目（item_name、item_text、item_price、
       deli_fee、condition、category、shipping_day、shipping_area、user_id）が存在すれば登録できる' do
-        @item.user_id = @user.id
         expect(@item).to be_valid
       end
     end
