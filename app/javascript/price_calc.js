@@ -1,19 +1,16 @@
 function calc(){
+  // 必要な要素を取得
   const price = document.getElementById('item-price');
-  // const profit = document.getElementById('profit');
-  price.addEventListener('input', ()=>{
-// jsだけで動かせるかも？
-    // const getvalue = document.getElementById("item-price").value;
-    // const result = document.getElementById("add-tax-price");
-    // result.value = getvalue * 0.1;
-    
-// ajaxで非同期通信するコード
-    // const formData = new FormData(document.getElementById("item-price"));
-    // const XHR = new XMLHttpRequest();
-    // XHR.open("POST", "/items/new", true);
-    // XHR.responseType ="json";
-    // XHR.send(formData);
+  const gettax = document.getElementById("add-tax-price");
+  const getprofit = document.getElementById("profit");
 
+  // 価格が入力されたイベントで処理を発火する
+  price.addEventListener('input', ()=>{
+    const getvalue = document.getElementById("item-price").value;
+    const tax = getvalue * 0.1;
+    const profit = getvalue - tax;
+    gettax.textContent = tax
+    getprofit.textContent = profit
   });
 }
 
