@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # アソシエーションの記載
-  # has_many :items
+  has_many :items
   # has_many :orders
 
   # バリデーションの一括設定

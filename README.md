@@ -47,9 +47,9 @@ Things you may want to cover:
 
 | Column        | Type        | Options                        |
 | ------------- | ----------- | ------------------------------ |
-| name          | string      | null: false                    |
+| item_name          | string      | null: false                    |
 | item_text     | text        | null: false                    |
-| price         | integer     | null: false                    |
+| item_price         | integer     | null: false                    |
 | deli_fee      | integer     | null: false                    |
 | user          | references  | null: false, foreign_key: true |
 | condition     | integer     | null: false                    |
