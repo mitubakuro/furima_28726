@@ -11,8 +11,8 @@ RSpec.describe Item, type: :model do
     context '出品がうまくいくとき' do
       it '9個の入力項目（item_name、item_text、item_price、
       deli_fee、condition、category、shipping_day、shipping_area、user_id）が存在すれば登録できる' do
-      @item.user_id = @user.id
-      expect(@item).to be_valid
+        @item.user_id = @user.id
+        expect(@item).to be_valid
       end
     end
 
@@ -55,17 +55,17 @@ RSpec.describe Item, type: :model do
       it 'item_priceが空だと登録できない' do
         @item.item_price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price can't be blank",  "Item price is not a number")
+        expect(@item.errors.full_messages).to include("Item price can't be blank", 'Item price is not a number')
       end
       it 'item_priceが300より小さいと登録できない' do
         @item.item_price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price must be greater than 299")
+        expect(@item.errors.full_messages).to include('Item price must be greater than 299')
       end
       it 'item_priceが9999999より大きいと登録できない' do
-        @item.item_price = 10000000
+        @item.item_price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price must be less than 10000000")
+        expect(@item.errors.full_messages).to include('Item price must be less than 10000000')
       end
     end
   end
