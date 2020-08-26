@@ -29,25 +29,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it 'カテゴリーが--だと登録できない' do
+        @item.category = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category （カテゴリー）を選んでください")
+      end
       it 'conditionが空だと登録できない' do
         @item.condition = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
+      end
+      it '商品の状態が--だと登録できない' do
+        @item.condition = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition （商品の状態）を選んでください")
       end
       it '配送料が空だと登録できない' do
         @item.deli_fee = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Deli fee can't be blank")
       end
+      it '配送料が--だと登録できない' do
+        @item.deli_fee = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Deli fee （配送料）を選んでください")
+      end
       it '配送元の地域が空だと登録できない' do
         @item.shipping_area = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area can't be blank")
       end
+      it '配送元の地域が--だと登録できない' do
+        @item.shipping_area = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping area （配送元の地域）を選んでください")
+      end
       it '配送までの日数が空だと登録できない' do
         @item.shipping_day = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day can't be blank")
+      end
+      it '配送までの日数が--だと登録できない' do
+        @item.shipping_day = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping day （発送までの日数）を選んでください")
       end
       it 'item_priceが空だと登録できない' do
         @item.item_price = ''
