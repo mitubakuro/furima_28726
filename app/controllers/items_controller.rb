@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    # @order = Order.
   end
 
   def show
