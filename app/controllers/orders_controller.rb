@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
-
+  before_action :ban_direct_url_seller, only: [:index]
+  before_action :ban_direct_url_sold, only: [:index]
 
   def index
   end
@@ -35,6 +37,18 @@ class OrdersController < ApplicationController
       currency:'jpy'                 # 通貨の種類(日本円)
     )
   end
- 
+
+
+  def ban_direct_url_seller
+    if current_user.id == @item.user_id && request.referrer == nil
+      redirect_to root_path
+    end
+  end
+
+  def ban_direct_url_sold
+    if @item.order != nil && request.referrer == nil
+      redirect_to root_path
+    end
+  end
 
 end
