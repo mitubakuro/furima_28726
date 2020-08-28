@@ -3,6 +3,7 @@ class OrderAddress
   attr_accessor :postal_code, :shipping_area_id, :city, :addresses, :build_number, :tel, :item_id, :user_id, :token
 
   with_options presence: true do
+    # validates :token
   end
 
   def save
