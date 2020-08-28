@@ -2,6 +2,7 @@ class ShippingArea < ActiveHash::Base
   include ActiveHash::Associations
   has_many :items
   has_many :orders
+  has_many :addresses
 
   self.data = [
     { id: 1, name: '--' }, { id: 2, name: '青森県' }, { id: 3, name: '岩手県' },

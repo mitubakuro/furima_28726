@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(item_id: @item.id, user_id: current_user.id)
+    @order = OrderAddress.new(item_id: @item.id, user_id: current_user.id)
     binding.pry
     if @order.valid?
       pay_item
@@ -24,12 +24,11 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.permit(:token)
+    params.require(:order_address).permit(:token, :postal_code, :shipping_area_id, :city, :addresses, :build_number, :tel)
     # 住所情報はpayjpの動作確認後、Formオブジェクトと一緒に記載する
   end
 
   def pay_item
-    binding.pry
     Payjp.api_key = "sk_test_edb5ad715db112611e06259d"  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.item_price ,  # 商品の値段
