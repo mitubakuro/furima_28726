@@ -6,8 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = OrderAddress.new(item_id: @item.id, user_id: current_user.id)
-    binding.pry
+    @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
       @order.save
@@ -24,7 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order_address).permit(:token, :postal_code, :shipping_area_id, :city, :addresses, :build_number, :tel)
+    params.permit(:token, :postal_code, :shipping_area_id, :city, :addresses, :build_number, :tel, :item_id).merge(user_id: current_user.id)
     # 住所情報はpayjpの動作確認後、Formオブジェクトと一緒に記載する
   end
 
