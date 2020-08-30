@@ -4,11 +4,11 @@ class OrderAddress
 
   with_options presence: true do
     # validates :token
-    validates :postal_code, format: {with:\d{3}-\d{4}}
+    validates :postal_code, format: {with: /\d{3}-\d{4}/}
     validates :shipping_area_id
     validates :city
     validates :addresses
-    validates :tel, format: {with:0\d{9,10}}
+    validates :tel, format: {with: /\d{11}/}
   end
 
   def save
