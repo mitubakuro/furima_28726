@@ -8,7 +8,7 @@ class OrderAddress
     validates :shipping_area_id
     validates :city
     validates :addresses
-    validates :tel, format: {with: /\d{11}/}
+    validates :tel, format: {with: /0\d{10}/}
   end
 
   def save
