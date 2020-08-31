@@ -5,10 +5,12 @@ class OrdersController < ApplicationController
   before_action :ban_direct_url_sold, only: [:index]
 
   def index
+    @order = OrderAddress.new
   end
 
   def create
     @order = OrderAddress.new(order_params)
+    binding.pry
     if @order.valid?
       pay_item
       @order.save
@@ -25,8 +27,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.permit(:token, :postal_code, :shipping_area_id, :city, :addresses, :build_number, :tel, :item_id).merge(user_id: current_user.id)
-    # 住所情報はpayjpの動作確認後、Formオブジェクトと一緒に記載する
+    params.require(:order_address).permit(:postal_code, :shipping_area_id, :city, :addresses, :build_number, :tel).merge(token: params[:token], item_id: params[:item_id], user_id: current_user.id)
   end
 
   def pay_item
@@ -37,7 +38,6 @@ class OrdersController < ApplicationController
       currency:'jpy'                 # 通貨の種類(日本円)
     )
   end
-
 
   def ban_direct_url_seller
     if current_user.id == @item.user_id && request.referrer == nil
