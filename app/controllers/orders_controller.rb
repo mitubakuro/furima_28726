@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
-  before_action :ban_direct_url_seller, only: [:index]
-  before_action :ban_direct_url_sold, only: [:index]
+  before_action :stop_direct_url_seller, only: [:index]
+  before_action :stop_direct_url_sold, only: [:index]
 
   def index
     @order = OrderAddress.new
@@ -42,11 +42,11 @@ class OrdersController < ApplicationController
     )
   end
 
-  def ban_direct_url_seller
+  def stop_direct_url_seller
     redirect_to root_path if current_user.id == @item.user_id && request.referrer.nil?
   end
 
-  def ban_direct_url_sold
+  def stop_direct_url_sold
     redirect_to root_path if !@item.order.nil? && request.referrer.nil?
   end
 end

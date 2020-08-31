@@ -13,8 +13,6 @@ const pay = () => {
       exp_month: formData.get("order_address[exp_month]"),
       exp_year: `20${formData.get("order_address[exp_year]")}`,
     };
-
-    // console.log(card)
     
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
@@ -33,7 +31,6 @@ const pay = () => {
         document.getElementById("charge-form").reset();
       } else {
         alert("入力情報が間違っています！")
-        // location.reload();
       }
     });
   });
