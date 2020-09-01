@@ -62,6 +62,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
 # 静的アセットファイルやログの保存先をHeroku用に微調整してくれるGemです。
   gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
 end
 
 gem "devise"
