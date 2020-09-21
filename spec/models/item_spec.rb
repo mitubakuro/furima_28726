@@ -24,52 +24,52 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item text can't be blank")
       end
       it 'categoryが空だと登録できない' do
-        @item.category = ''
+        @item.category_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'カテゴリーが--だと登録できない' do
-        @item.category = 1
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category を選んでください')
       end
       it 'conditionが空だと登録できない' do
-        @item.condition = ''
+        @item.condition_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it '商品の状態が--だと登録できない' do
-        @item.condition = 1
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition を選んでください')
       end
       it '配送料が空だと登録できない' do
-        @item.deli_fee = ''
+        @item.deli_fee_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Deli fee can't be blank")
       end
       it '配送料が--だと登録できない' do
-        @item.deli_fee = 1
+        @item.deli_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Deli fee を選んでください')
       end
       it '配送元の地域が空だと登録できない' do
-        @item.shipping_area = ''
+        @item.shipping_area_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area can't be blank")
       end
       it '配送元の地域が--だと登録できない' do
-        @item.shipping_area = 1
+        @item.shipping_area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping area を選んでください')
       end
       it '配送までの日数が空だと登録できない' do
-        @item.shipping_day = ''
+        @item.shipping_day_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
       it '配送までの日数が--だと登録できない' do
-        @item.shipping_day = 1
+        @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping day を選んでください')
       end
